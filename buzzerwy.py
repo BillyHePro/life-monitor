@@ -3,6 +3,7 @@
 ######################################
 import RPi.GPIO as GPIO
 import time
+from heartrate_monitor import HeartRateMonitor
 buzzer=11
 Tone_CL= [0,131,147,165,175,196,211,248]
 Tone_CM= [0,262,294,330,350,393,441,495]
@@ -22,7 +23,7 @@ song_2=[Tone_CM[1],Tone_CM[1],Tone_CM[1],Tone_CM[5],Tone_CM[3],Tone_CM[3],Tone_C
 
 beat_2=[1,1,2,2,1,1,2,2,1,1,2,2,1,1,3,1,2,2,1,1,2,2,1,1,2,2,1,1,1,3]
 
-class Buzzer(boolbpm,boolspo2):
+class Buzzer(self,BoolBpm,BoolSpo2):
     def buzzer_setup():
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
