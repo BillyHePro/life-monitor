@@ -1,12 +1,12 @@
 #!/usr/bin/env python 3
 ###############################################
 #import necessary library for passing arguments
-from heartrate_mopnitor import HeartRateMonitor
+from heartrate_monitor import HeartRateMonitor
 import RPi.GPIO as GPIO
 import importlib 
 import time
 import sys
-import argarse
+import argparse
 
 #these are calling relevant library to specific variables
 #GPIO NUM
@@ -16,23 +16,21 @@ makerobo_Buzz= 11
 #makerobo_beep=importlib.import_module('09_active_buzzer')
 
 
-#Lcdfile= importlib.import_module('29_i2c_lcd1602')
-#Lcdfile2=importlib.import_module('LCD1602')
+Lcdfile= importlib.import_module('29_i2c_lcd1602')
+Lcdfile2=importlib.import_module('LCD1602')
 #Hrcalc=importlib.import_module('hrcalc')
 #Max30102=importlib.import_module('max30102')
 #INIT FUCTIONS
 #makerobo_beep.makerobo_setup(makerobo_Buzz)
 
-#Lcdfile.makerobo_setup()
-#Lcdfile.makerobo_loop()
+Lcdfile.makerobo_setup()
+Lcdfile.makerobo_loop()
 
 #TODO: check further details
 
 # now initialize all libarary for starting up
 
 #set up fundamental variables to judge crtical situations
-print('sensor starting~~~')
-hrm= HearRateMonitor()
 ################
 
 parser = argparse.ArgumentParser(description="Read and print data from MAX30102")
@@ -54,13 +52,13 @@ hrm.stop_sensor()
 print('sensor stoped!')
 
 ###########
-def makerobo_setup(): 
-    global highbpm, lowbpm, highspo2, lowspo2
+#def makerobo_setup(): 
+#    global highbpm, lowbpm, highspo2, lowspo2
 
-    highbpm=80
-    lowbpm=60
-    highspo2=100
-    lowspo2=80
+#    highbpm=80
+#    lowbpm=60
+#    highspo2=100
+#    lowspo2=80
 
 #ensure other programs are running properly
 #def screen():
@@ -94,19 +92,19 @@ def makerobo_setup():
         #    LCD1602.makerobo_clear()
         #    LCD1602.makerobo_write(0, 0, 'sleep on one side PLZ')
         #    LCD1602.makerobo_write(0, 1, 'To make you heathly')
-def makerobo_loop():
-    while True:
-        ds_temp=90
-        if float(ds_temp)>=60:
-            ds_temp=ds_temp+1
-            for i in range(0,3):     # 播放第一首歌
-                makerobo_beep.makerobo_beep(0.5)
-        if float(ds_temp)<60:
-            for i in range(0,3):     # 播放第一首歌
-                makerobo_beep.makerobo_beep(0.1)
+#def makerobo_loop():
+#    while True:
+#        ds_temp=90
+#        if float(ds_temp)>=60:
+#            ds_temp=ds_temp+1
+#            for i in range(0,3):     # 播放第一首歌
+#                makerobo_beep.makerobo_beep(0.5)
+#        if float(ds_temp)<60:
+#            for i in range(0,3):     # 播放第一首歌
+#               makerobo_beep.makerobo_beep(0.1)
 #destroy libraries to debug and amend programs easily and indepentdently 
 def makerobo_destroy():
-    LCD1602.destroy()
+    #LCD1602.destroy()
     #makerobo_beep.destroy()
     heartrate_monitor.stop_sensor()
 

@@ -5,13 +5,12 @@ import threading
 import time
 import numpy as np
 
-
 class HeartRateMonitor(object):
     """
     A class that encapsulates the max30102 device into a thread
     """
 
-    LOOP_TIME = 0.01
+    LOOP_TIME = 1
 
     def __init__(self, print_raw=False, print_result=False):
         self.bpm = 0
