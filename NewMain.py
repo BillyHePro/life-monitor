@@ -16,15 +16,15 @@ makerobo_Buzz= 11
 #makerobo_beep=importlib.import_module('09_active_buzzer')
 
 
-Lcdfile= importlib.import_module('29_i2c_lcd1602')
-Lcdfile2=importlib.import_module('LCD1602')
-#Hrcalc=importlib.import_module('hrcalc')
-#Max30102=importlib.import_module('max30102')
+#Lcdfile= importlib.import_module('29_i2c_lcd1602')
+#Lcdfile2=importlib.import_module('LCD1602')
+Hrcalc=importlib.import_module('hrcalc')
+Max30102=importlib.import_module('max30102')
 #INIT FUCTIONS
 #makerobo_beep.makerobo_setup(makerobo_Buzz)
 
-Lcdfile.makerobo_setup()
-Lcdfile.makerobo_loop()
+#Lcdfile.makerobo_setup()
+#Lcdfile.makerobo_loop()
 
 #TODO: check further details
 
