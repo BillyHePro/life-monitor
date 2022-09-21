@@ -109,7 +109,10 @@ def makerobo_write(lcd_x, lcd_y, lcd_str):
 
 # 程序入口
 if __name__ == '__main__':
+	# 15*2
+
 	makerobo_init(0x27, 1)          # 初始化显示屏
 	makerobo_write(4, 0, 'HSQ smart')   # 在第一行显示Hello
 	makerobo_write(7, 1, 'HSQ YYDS')  # 在第二行显示world!
+
 

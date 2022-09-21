@@ -1,5 +1,5 @@
 from distutils.command.bdist_rpm import bdist_rpm
-from max30102 import MAX30102
+from heartrate_sensor_controller import MAX30102
 import hrcalc
 import threading
 import time
@@ -22,8 +22,8 @@ class HeartRateMonitor(object):
 
     def run_sensor(self):
         sensor = MAX30102()
-        ir_data = []
-        red_data = []
+        ir_data = [] # infra red led
+        red_data = [] # red led
         bpms = []
 
         # run until told to stop
@@ -46,6 +46,7 @@ class HeartRateMonitor(object):
 
                 if len(ir_data) == 100:
                     bpm, valid_bpm, spo2, valid_spo2 = hrcalc.calc_hr_and_spo2(ir_data, red_data)
+                    # todo, read hrcalc
                     if valid_bpm:
                         bpms.append(bpm)
                         while len(bpms) > 4:
@@ -57,6 +58,10 @@ class HeartRateMonitor(object):
                                 print("Finger not detected")
                         if self.print_result:
                             print("BPM: {0}, SpO2: {1}".format(self.bpm, spo2))
+                    
+                    if valid_spo2:
+                        self.spo2 = spo2
+
 
             time.sleep(self.LOOP_TIME)
 
