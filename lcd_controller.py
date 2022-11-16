@@ -7,7 +7,7 @@ import smbus
 
 makerobo_BUS = smbus.SMBus(1)
 
-# IIC LCD1602 液晶模块写入字
+# IIC LCD1602 LCD module write word
 def makerobo_write_word(addr, data):
 	global makerobo_BLEN
 	makerobo_temp = data
