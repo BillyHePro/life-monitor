@@ -1,6 +1,6 @@
 # -*-coding:utf-8-*-
-
-# this code is currently for python 2.7
+# this code is initially for python 2.7, but now it works in the project
+######################################
 from __future__ import print_function
 from time import sleep
 import smbus
