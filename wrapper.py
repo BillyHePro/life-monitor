@@ -14,8 +14,6 @@ Hrcalc=importlib.import_module('hrcalc')
 Max30102=importlib.import_module('max30102')
 #INIT FUCTIONS
 
-#TODO: check further details
-
 # now initialize all libarary for starting up
 #set up fundamental variables to judge crtical situations
 
@@ -46,4 +44,3 @@ if __name__ == "__main__":
         makerobo_loop()
     except KeyboardInterrupt:
         makerobo_destory()
-
