@@ -1,3 +1,7 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+######################################
+
 from distutils.command.bdist_rpm import bdist_rpm
 from heartrate_sensor_controller import MAX30102
 import hrcalc
